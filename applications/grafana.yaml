@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
-destination:
-  namespace: default
-  server: https://kubernetes.default.svc
 kind: Application
 metadata:
   name: grafana
   namespace: argocd
 spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
   project: default
   source:
     chart: grafana
