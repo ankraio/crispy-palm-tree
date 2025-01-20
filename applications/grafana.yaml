@@ -1,1 +1,11 @@
-{'apiVersion': 'argoproj.io/v1alpha1', 'kind': 'Application', 'metadata': {'name': 'grafana', 'namespace': 'argocd'}, 'spec': {'project': 'default', 'source': {'repoURL': 'https://grafana.github.io/helm-charts', 'chart': 'grafana', 'targetRevision': '8.6.3'}}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: grafana
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 8.6.3
