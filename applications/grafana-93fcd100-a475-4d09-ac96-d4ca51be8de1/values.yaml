@@ -1,0 +1,4 @@
+image:
+  registry: docker.io
+  repository: grafana/grafana
+replicas: 2
