@@ -1,0 +1,7 @@
+"extraLabels":
+  "cost-center": "infrastructure"
+  "environment": "production"
+  "helm.sh/chart": "grafana-5.0.0"
+  "managed-by": "platform-team"
+  "team": "platform"
+"replicas": 2
