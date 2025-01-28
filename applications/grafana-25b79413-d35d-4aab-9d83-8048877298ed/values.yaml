@@ -1,0 +1,7 @@
+"extraLabels":
+  "cost-center": "infrastructure"
+  "environment": "production"
+  "managed-by": "platform-team"
+  "team": "platform"
+  "version": "v1.0.0"
+"replicas": 2
