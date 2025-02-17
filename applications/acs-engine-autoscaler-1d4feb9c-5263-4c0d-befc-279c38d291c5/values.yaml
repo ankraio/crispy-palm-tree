@@ -1,0 +1,21 @@
+config: "test: hello_world\nthis:\n  is:\n    something: ok"
+ingress:
+  enabled: true
+  hosts:
+  - wordpress.example.com
+  tls:
+  - hosts:
+    - wordpress.example.com
+    secretName: wordpress-tls
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+wordpress:
+  image:
+    repository: wordpress
+    tag: latest
+  replicaCount: 1
