@@ -1,0 +1,997 @@
+clusterDomain: cluster.local
+clusterName: open
+commonAnnotations: {}
+commonLabels: {}
+config: {}
+containerPorts:
+  restAPI: 9200
+  transport: 9300
+coordinating:
+  affinity: {}
+  annotations: {}
+  args: []
+  automountServiceAccountToken: false
+  autoscaling:
+    hpa:
+      enabled: false
+      maxReplicas: 11
+      minReplicas: 3
+      targetCPU: ''
+      targetMemory: ''
+    vpa:
+      annotations: {}
+      controlledResources: []
+      enabled: false
+      maxAllowed: {}
+      minAllowed: {}
+      updatePolicy:
+        updateMode: Auto
+  command: []
+  containerSecurityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    enabled: true
+    privileged: false
+    readOnlyRootFilesystem: true
+    runAsGroup: 1001
+    runAsNonRoot: true
+    runAsUser: 1001
+    seLinuxOptions: {}
+    seccompProfile:
+      type: RuntimeDefault
+  customLivenessProbe: {}
+  customReadinessProbe: {}
+  customStartupProbe: {}
+  extraEnvVars: []
+  extraEnvVarsCM: ''
+  extraEnvVarsSecret: ''
+  extraRoles: []
+  extraVolumeMounts: []
+  extraVolumes: []
+  fullnameOverride: ''
+  heapSize: 128m
+  hostAliases: []
+  initContainers: []
+  lifecycleHooks: {}
+  livenessProbe:
+    enabled: true
+    failureThreshold: 5
+    initialDelaySeconds: 90
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  metrics:
+    enabled: false
+    rules:
+      additionalLabels: {}
+      enabled: false
+      namespace: monitoring
+      selector: {}
+      spec: []
+    service:
+      clusterIP: ''
+      ports:
+        metrics: 80
+    serviceMonitor:
+      enabled: false
+      honorLabels: false
+      interval: 30s
+      jobLabel: ''
+      metricRelabelings: []
+      namespace: ''
+      relabelings: []
+      scrapeTimeout: 10s
+      selector: {}
+  nameOverride: ''
+  networkPolicy:
+    allowExternal: true
+    allowExternalEgress: true
+    enabled: true
+    extraEgress: []
+    extraIngress: []
+    ingressNSMatchLabels: {}
+    ingressNSPodMatchLabels: {}
+  nodeAffinityPreset:
+    key: ''
+    type: ''
+    values: []
+  nodeSelector: {}
+  pdb:
+    create: true
+    maxUnavailable: ''
+    minAvailable: ''
+  podAffinityPreset: ''
+  podAnnotations: {}
+  podAntiAffinityPreset: ''
+  podLabels: {}
+  podManagementPolicy: Parallel
+  podSecurityContext:
+    enabled: true
+    fsGroup: 1001
+    fsGroupChangePolicy: Always
+    supplementalGroups: []
+    sysctls: []
+  priorityClassName: ''
+  readinessProbe:
+    enabled: true
+    failureThreshold: 5
+    initialDelaySeconds: 90
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  replicaCount: 2
+  resources: {}
+  resourcesPreset: small
+  schedulerName: ''
+  serviceAccount:
+    annotations: {}
+    automountServiceAccountToken: false
+    create: false
+    name: ''
+  servicenameOverride: ''
+  sidecars: []
+  startupProbe:
+    enabled: false
+    failureThreshold: 5
+    initialDelaySeconds: 90
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  terminationGracePeriodSeconds: ''
+  tolerations: []
+  topologySpreadConstraints: []
+  updateStrategy:
+    type: RollingUpdate
+dashboards:
+  affinity: {}
+  args: []
+  automountServiceAccountToken: false
+  autoscaling:
+    hpa:
+      enabled: false
+      maxReplicas: 11
+      minReplicas: 3
+      targetCPU: ''
+      targetMemory: ''
+    vpa:
+      annotations: {}
+      controlledResources: []
+      enabled: false
+      maxAllowed: {}
+      minAllowed: {}
+      updatePolicy:
+        updateMode: Auto
+  command: []
+  containerPorts:
+    http: 5601
+  containerSecurityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    enabled: true
+    privileged: false
+    readOnlyRootFilesystem: true
+    runAsGroup: 1001
+    runAsNonRoot: true
+    runAsUser: 1001
+    seLinuxOptions: {}
+    seccompProfile:
+      type: RuntimeDefault
+  customLivenessProbe: {}
+  customReadinessProbe: {}
+  customStartupProbe: {}
+  enabled: false
+  extraEnvVars: []
+  extraEnvVarsCM: ''
+  extraEnvVarsSecret: ''
+  extraVolumeMounts: []
+  extraVolumes: []
+  fullnameOverride: ''
+  heapSize: 1024m
+  hostAliases: []
+  image:
+    debug: false
+    digest: ''
+    pullPolicy: IfNotPresent
+    pullSecrets: []
+    registry: docker.io
+    repository: bitnami/opensearch-dashboards
+    tag: 2.18.0-debian-12-r4
+  ingress:
+    annotations: {}
+    apiVersion: ''
+    enabled: false
+    extraHosts: []
+    extraPaths: []
+    extraRules: []
+    extraTls: []
+    hostname: opensearch-dashboards.local
+    ingressClassName: ''
+    path: /
+    pathType: ImplementationSpecific
+    secrets: []
+    selfSigned: false
+    tls: false
+  initContainers: []
+  lifecycleHooks: {}
+  livenessProbe:
+    enabled: true
+    failureThreshold: 8
+    initialDelaySeconds: 180
+    periodSeconds: 20
+    successThreshold: 1
+    timeoutSeconds: 5
+  nameOverride: ''
+  networkPolicy:
+    allowExternal: true
+    allowExternalEgress: true
+    enabled: true
+    extraEgress: []
+    extraIngress: []
+    ingressNSMatchLabels: {}
+    ingressNSPodMatchLabels: {}
+  nodeAffinityPreset:
+    key: ''
+    type: ''
+    values: []
+  nodeSelector: {}
+  password: ''
+  pdb:
+    create: true
+    maxUnavailable: ''
+    minAvailable: ''
+  persistence:
+    accessModes:
+    - ReadWriteOnce
+    annotations: {}
+    dataSource: {}
+    enabled: false
+    existingClaim: ''
+    mountPath: /bitnami/opensearch-dashboards
+    selector: {}
+    size: 8Gi
+    storageClass: ''
+    subPath: ''
+  podAffinityPreset: ''
+  podAnnotations: {}
+  podAntiAffinityPreset: ''
+  podLabels: {}
+  podSecurityContext:
+    enabled: true
+    fsGroup: 1001
+    fsGroupChangePolicy: Always
+    supplementalGroups: []
+    sysctls: []
+  priorityClassName: ''
+  readinessProbe:
+    enabled: true
+    failureThreshold: 5
+    initialDelaySeconds: 120
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  replicaCount: 1
+  resources: {}
+  resourcesPreset: small
+  schedulerName: ''
+  service:
+    annotations: {}
+    clusterIP: ''
+    externalTrafficPolicy: Cluster
+    extraPorts: []
+    loadBalancerIP: ''
+    loadBalancerSourceRanges: []
+    nodePorts:
+      http: ''
+    ports:
+      http: 5601
+    sessionAffinity: None
+    sessionAffinityConfig: {}
+    type: ClusterIP
+  serviceAccount:
+    annotations: {}
+    automountServiceAccountToken: false
+    create: false
+    name: ''
+  servicenameOverride: ''
+  sidecars: []
+  startupProbe:
+    enabled: false
+    failureThreshold: 5
+    initialDelaySeconds: 120
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  terminationGracePeriodSeconds: ''
+  tls:
+    autoGenerated: true
+    enabled: false
+    existingSecret: ''
+  tolerations: []
+  topologySpreadConstraints: []
+  updateStrategy:
+    type: RollingUpdate
+data:
+  affinity: {}
+  annotations: {}
+  args: []
+  automountServiceAccountToken: false
+  autoscaling:
+    hpa:
+      enabled: false
+      maxReplicas: 11
+      minReplicas: 3
+      targetCPU: ''
+      targetMemory: ''
+    vpa:
+      annotations: {}
+      controlledResources: []
+      enabled: false
+      maxAllowed: {}
+      minAllowed: {}
+      updatePolicy:
+        updateMode: Auto
+  command: []
+  containerSecurityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    enabled: true
+    privileged: false
+    readOnlyRootFilesystem: true
+    runAsGroup: 1001
+    runAsNonRoot: true
+    runAsUser: 1001
+    seLinuxOptions: {}
+    seccompProfile:
+      type: RuntimeDefault
+  customLivenessProbe: {}
+  customReadinessProbe: {}
+  customStartupProbe: {}
+  extraEnvVars: []
+  extraEnvVarsCM: ''
+  extraEnvVarsSecret: ''
+  extraRoles: []
+  extraVolumeMounts: []
+  extraVolumes: []
+  fullnameOverride: ''
+  heapSize: 1024m
+  hostAliases: []
+  initContainers: []
+  lifecycleHooks: {}
+  livenessProbe:
+    enabled: true
+    failureThreshold: 5
+    initialDelaySeconds: 90
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  metrics:
+    enabled: false
+    rules:
+      additionalLabels: {}
+      enabled: false
+      namespace: monitoring
+      selector: {}
+      spec: []
+    service:
+      clusterIP: ''
+      ports:
+        metrics: 80
+    serviceMonitor:
+      enabled: false
+      honorLabels: false
+      interval: 30s
+      jobLabel: ''
+      metricRelabelings: []
+      namespace: ''
+      relabelings: []
+      scrapeTimeout: 10s
+      selector: {}
+  nameOverride: ''
+  networkPolicy:
+    allowExternal: true
+    allowExternalEgress: true
+    enabled: true
+    extraEgress: []
+    extraIngress: []
+    ingressNSMatchLabels: {}
+    ingressNSPodMatchLabels: {}
+  nodeAffinityPreset:
+    key: ''
+    type: ''
+    values: []
+  nodeSelector: {}
+  pdb:
+    create: true
+    maxUnavailable: ''
+    minAvailable: ''
+  persistence:
+    accessModes:
+    - ReadWriteOnce
+    annotations: {}
+    enabled: true
+    existingClaim: ''
+    existingVolume: ''
+    selector: {}
+    size: 8Gi
+    storageClass: ''
+  podAffinityPreset: ''
+  podAnnotations: {}
+  podAntiAffinityPreset: ''
+  podLabels: {}
+  podManagementPolicy: Parallel
+  podSecurityContext:
+    enabled: true
+    fsGroup: 1001
+    fsGroupChangePolicy: Always
+    supplementalGroups: []
+    sysctls: []
+  priorityClassName: ''
+  readinessProbe:
+    enabled: true
+    failureThreshold: 5
+    initialDelaySeconds: 90
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  replicaCount: 2
+  resources: {}
+  resourcesPreset: medium
+  schedulerName: ''
+  serviceAccount:
+    annotations: {}
+    automountServiceAccountToken: false
+    create: false
+    name: ''
+  servicenameOverride: ''
+  sidecars: []
+  startupProbe:
+    enabled: false
+    failureThreshold: 5
+    initialDelaySeconds: 90
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  terminationGracePeriodSeconds: ''
+  tolerations: []
+  topologySpreadConstraints: []
+  updateStrategy:
+    type: RollingUpdate
+diagnosticMode:
+  args:
+  - infinity
+  command:
+  - sleep
+  enabled: false
+extraConfig: {}
+extraDeploy: []
+extraEnvVars: []
+extraEnvVarsCM: ''
+extraEnvVarsSecret: ''
+extraHosts: []
+extraVolumeMounts: []
+extraVolumes: []
+fullnameOverride: ''
+global:
+  compatibility:
+    openshift:
+      adaptSecurityContext: auto
+  defaultStorageClass: ''
+  imagePullSecrets: []
+  imageRegistry: ''
+  security:
+    allowInsecureImages: false
+  storageClass: ''
+image:
+  debug: false
+  digest: ''
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+  registry: docker.io
+  repository: bitnami/opensearch
+  tag: 2.18.0-debian-12-r4
+ingest:
+  affinity: {}
+  annotations: {}
+  args: []
+  automountServiceAccountToken: false
+  autoscaling:
+    hpa:
+      enabled: false
+      maxReplicas: 11
+      minReplicas: 3
+      targetCPU: ''
+      targetMemory: ''
+    vpa:
+      annotations: {}
+      controlledResources: []
+      enabled: false
+      maxAllowed: {}
+      minAllowed: {}
+      updatePolicy:
+        updateMode: Auto
+  command: []
+  containerSecurityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    enabled: true
+    privileged: false
+    readOnlyRootFilesystem: true
+    runAsGroup: 1001
+    runAsNonRoot: true
+    runAsUser: 1001
+    seLinuxOptions: {}
+    seccompProfile:
+      type: RuntimeDefault
+  customLivenessProbe: {}
+  customReadinessProbe: {}
+  customStartupProbe: {}
+  enabled: true
+  extraEnvVars: []
+  extraEnvVarsCM: ''
+  extraEnvVarsSecret: ''
+  extraRoles: []
+  extraVolumeMounts: []
+  extraVolumes: []
+  fullnameOverride: ''
+  heapSize: 128m
+  hostAliases: []
+  ingress:
+    annotations: {}
+    apiVersion: ''
+    enabled: false
+    extraHosts: []
+    extraPaths: []
+    extraRules: []
+    extraTls: []
+    hostname: opensearch-ingest.local
+    ingressClassName: ''
+    path: /
+    pathType: ImplementationSpecific
+    secrets: []
+    selfSigned: false
+    tls: false
+  initContainers: []
+  lifecycleHooks: {}
+  livenessProbe:
+    enabled: true
+    failureThreshold: 5
+    initialDelaySeconds: 90
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  metrics:
+    enabled: false
+    rules:
+      additionalLabels: {}
+      enabled: false
+      namespace: monitoring
+      selector: {}
+      spec: []
+    service:
+      clusterIP: ''
+      ports:
+        metrics: 80
+    serviceMonitor:
+      enabled: false
+      honorLabels: false
+      interval: 30s
+      jobLabel: ''
+      metricRelabelings: []
+      namespace: ''
+      relabelings: []
+      scrapeTimeout: 10s
+      selector: {}
+  nameOverride: ''
+  networkPolicy:
+    allowExternal: true
+    allowExternalEgress: true
+    enabled: true
+    extraEgress: []
+    extraIngress: []
+    ingressNSMatchLabels: {}
+    ingressNSPodMatchLabels: {}
+  nodeAffinityPreset:
+    key: ''
+    type: ''
+    values: []
+  nodeSelector: {}
+  pdb:
+    create: true
+    maxUnavailable: ''
+    minAvailable: ''
+  podAffinityPreset: ''
+  podAnnotations: {}
+  podAntiAffinityPreset: ''
+  podLabels: {}
+  podManagementPolicy: Parallel
+  podSecurityContext:
+    enabled: true
+    fsGroup: 1001
+    fsGroupChangePolicy: Always
+    supplementalGroups: []
+    sysctls: []
+  priorityClassName: ''
+  readinessProbe:
+    enabled: true
+    failureThreshold: 5
+    initialDelaySeconds: 90
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  replicaCount: 2
+  resources: {}
+  resourcesPreset: small
+  schedulerName: ''
+  service:
+    annotations: {}
+    clusterIP: ''
+    enabled: false
+    externalTrafficPolicy: Cluster
+    extraPorts: []
+    loadBalancerIP: ''
+    loadBalancerSourceRanges: []
+    nodePorts:
+      restAPI: ''
+      transport: ''
+    ports:
+      restAPI: 9200
+      transport: 9300
+    sessionAffinity: None
+    sessionAffinityConfig: {}
+    type: ClusterIP
+  serviceAccount:
+    annotations: {}
+    automountServiceAccountToken: false
+    create: false
+    name: ''
+  servicenameOverride: ''
+  sidecars: []
+  startupProbe:
+    enabled: false
+    failureThreshold: 5
+    initialDelaySeconds: 90
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  terminationGracePeriodSeconds: ''
+  tolerations: []
+  topologySpreadConstraints: []
+  updateStrategy:
+    type: RollingUpdate
+ingress:
+  annotations: {}
+  apiVersion: ''
+  enabled: false
+  extraHosts: []
+  extraPaths: []
+  extraRules: []
+  extraTls: []
+  hostname: opensearch.local
+  ingressClassName: ''
+  path: /
+  pathType: ImplementationSpecific
+  secrets: []
+  selfSigned: false
+  tls: false
+initContainers: []
+initScripts: {}
+initScriptsCM: ''
+initScriptsSecret: ''
+kubeVersion: ''
+master:
+  affinity: {}
+  annotations: {}
+  args: []
+  automountServiceAccountToken: false
+  autoscaling:
+    hpa:
+      enabled: false
+      maxReplicas: 11
+      minReplicas: 3
+      targetCPU: ''
+      targetMemory: ''
+    vpa:
+      annotations: {}
+      controlledResources: []
+      enabled: false
+      maxAllowed: {}
+      minAllowed: {}
+      updatePolicy:
+        updateMode: Auto
+  command: []
+  containerSecurityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    enabled: true
+    privileged: false
+    readOnlyRootFilesystem: true
+    runAsGroup: 1001
+    runAsNonRoot: true
+    runAsUser: 1001
+    seLinuxOptions: {}
+    seccompProfile:
+      type: RuntimeDefault
+  customLivenessProbe: {}
+  customReadinessProbe: {}
+  customStartupProbe: {}
+  extraEnvVars: []
+  extraEnvVarsCM: ''
+  extraEnvVarsSecret: ''
+  extraRoles: []
+  extraVolumeMounts: []
+  extraVolumes: []
+  fullnameOverride: ''
+  heapSize: 128m
+  hostAliases: []
+  initContainers: []
+  lifecycleHooks: {}
+  livenessProbe:
+    enabled: true
+    failureThreshold: 5
+    initialDelaySeconds: 90
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  masterOnly: true
+  metrics:
+    enabled: false
+    rules:
+      additionalLabels: {}
+      enabled: false
+      namespace: monitoring
+      selector: {}
+      spec: []
+    service:
+      clusterIP: ''
+      ports:
+        metrics: 80
+    serviceMonitor:
+      enabled: false
+      honorLabels: false
+      interval: 30s
+      jobLabel: ''
+      metricRelabelings: []
+      namespace: ''
+      relabelings: []
+      scrapeTimeout: 10s
+      selector: {}
+  nameOverride: ''
+  networkPolicy:
+    allowExternal: true
+    allowExternalEgress: true
+    enabled: true
+    extraEgress: []
+    extraIngress: []
+    ingressNSMatchLabels: {}
+    ingressNSPodMatchLabels: {}
+  nodeAffinityPreset:
+    key: ''
+    type: ''
+    values: []
+  nodeSelector: {}
+  pdb:
+    create: true
+    maxUnavailable: ''
+    minAvailable: ''
+  persistence:
+    accessModes:
+    - ReadWriteOnce
+    annotations: {}
+    enabled: true
+    existingClaim: ''
+    existingVolume: ''
+    selector: {}
+    size: 8Gi
+    storageClass: ''
+  podAffinityPreset: ''
+  podAnnotations: {}
+  podAntiAffinityPreset: ''
+  podLabels: {}
+  podManagementPolicy: Parallel
+  podSecurityContext:
+    enabled: true
+    fsGroup: 1001
+    fsGroupChangePolicy: Always
+    supplementalGroups: []
+    sysctls: []
+  priorityClassName: ''
+  readinessProbe:
+    enabled: true
+    failureThreshold: 5
+    initialDelaySeconds: 90
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  replicaCount: 2
+  resources: {}
+  resourcesPreset: small
+  schedulerName: ''
+  serviceAccount:
+    annotations: {}
+    automountServiceAccountToken: false
+    create: false
+    name: ''
+  servicenameOverride: ''
+  sidecars: []
+  startupProbe:
+    enabled: false
+    failureThreshold: 5
+    initialDelaySeconds: 90
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  terminationGracePeriodSeconds: ''
+  tolerations: []
+  topologySpreadConstraints: []
+  updateStrategy:
+    type: RollingUpdate
+nameOverride: ''
+namespaceOverride: ''
+plugins: ''
+security:
+  adminPassword: ''
+  enabled: false
+  existingSecret: ''
+  fipsMode: false
+  logstashPassword: ''
+  tls:
+    admin:
+      certKey: ''
+      existingSecret: ''
+      keyKey: ''
+    adminDN: ''
+    autoGenerated: true
+    coordinating:
+      caKey: ''
+      certKey: ''
+      existingSecret: ''
+      keyKey: ''
+    data:
+      caKey: ''
+      certKey: ''
+      existingSecret: ''
+      keyKey: ''
+    ingest:
+      caKey: ''
+      certKey: ''
+      existingSecret: ''
+      keyKey: ''
+    keyPassword: ''
+    keystoreFilename: opensearch.keystore.jks
+    keystorePassword: ''
+    master:
+      caKey: ''
+      certKey: ''
+      existingSecret: ''
+      keyKey: ''
+    nodesDN: ''
+    passwordsSecret: ''
+    restEncryption: false
+    secretKey: ''
+    secretKeystoreKey: ''
+    secretTruststoreKey: ''
+    truststoreFilename: opensearch.truststore.jks
+    truststorePassword: ''
+    usePemCerts: false
+    verificationMode: full
+service:
+  annotations: {}
+  clusterIP: ''
+  externalTrafficPolicy: Cluster
+  extraPorts: []
+  loadBalancerIP: ''
+  loadBalancerSourceRanges: []
+  nodePorts:
+    restAPI: ''
+    transport: ''
+  ports:
+    restAPI: 9200
+    transport: 9300
+  sessionAffinity: None
+  sessionAffinityConfig: {}
+  type: ClusterIP
+sidecars: []
+snapshotRepoPath: ''
+snapshots:
+  command: []
+  containerSecurityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    enabled: true
+    privileged: false
+    readOnlyRootFilesystem: true
+    runAsGroup: 1001
+    runAsNonRoot: true
+    runAsUser: 1001
+    seLinuxOptions: null
+    seccompProfile:
+      type: RuntimeDefault
+  enabled: false
+  fullnameOverride: ''
+  image:
+    debug: false
+    digest: ''
+    pullPolicy: IfNotPresent
+    pullSecrets: []
+    registry: docker.io
+    repository: bitnami/os-shell
+    tag: 12-debian-12-r35
+  nameOverride: ''
+  persistence:
+    accessModes:
+    - ReadWriteMany
+    annotations: {}
+    dataSource: {}
+    enabled: false
+    existingClaim: ''
+    labels: {}
+    selector: {}
+    size: 8Gi
+    storageClass: ''
+    subPath: ''
+  podSecurityContext:
+    enabled: true
+    fsGroup: 1001
+    fsGroupChangePolicy: Always
+    supplementalGroups: []
+    sysctls: []
+  policies:
+    default:
+      creation:
+        schedule:
+          cron:
+            expression: 0 20 * * *
+            timezone: UTC
+      deletion:
+        condition:
+          max_age: 7d
+          min_count: 1
+        schedule:
+          cron:
+            expression: 0 20 * * *
+            timezone: UTC
+      description: Default snapshot policy
+      enabled: true
+      snapshot_config:
+        repository: default
+  repositories:
+    default:
+      settings:
+        location: /snapshots
+      type: fs
+  resources: {}
+  resourcesPreset: nano
+sysctlImage:
+  digest: ''
+  enabled: true
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+  registry: docker.io
+  repository: bitnami/os-shell
+  resources: {}
+  resourcesPreset: nano
+  tag: 12-debian-12-r35
+useIstioLabels: true
+volumePermissions:
+  enabled: false
+  image:
+    digest: ''
+    pullPolicy: IfNotPresent
+    pullSecrets: []
+    registry: docker.io
+    repository: bitnami/os-shell
+    tag: 12-debian-12-r35
+  resources: {}
+  resourcesPreset: nano
