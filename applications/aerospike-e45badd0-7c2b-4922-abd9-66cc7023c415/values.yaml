@@ -1,2 +1,2 @@
-terminationGracePeriodSeconds: 50
+terminationGracePeriodSeconds: 30
 replicaCount: 1
