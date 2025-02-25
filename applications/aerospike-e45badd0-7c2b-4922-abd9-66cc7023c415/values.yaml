@@ -1,2 +1,2 @@
 terminationGracePeriodSeconds: 30
-replicaCount: 1
+replicaCount: 2
