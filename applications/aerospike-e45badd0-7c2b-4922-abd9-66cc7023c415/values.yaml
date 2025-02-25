@@ -1,0 +1,2 @@
+terminationGracePeriodSeconds: 30
+replicaCount: 1
