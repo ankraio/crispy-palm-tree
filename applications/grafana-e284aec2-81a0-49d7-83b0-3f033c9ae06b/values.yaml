@@ -1,14 +1,59 @@
+global:
+  # Optional: if you want to use a specific image pull secret
+  imagePullSecrets: []
+
+# Deployment configuration
 replicaCount: 1
 
+# Container image configuration
 image:
   repository: docker.io/bitnami/grafana
   tag: 11.4.0-debian-12-r2
   pullPolicy: IfNotPresent
 
+# Grafana container resources
 resources:
   requests:
     cpu: 100m
     memory: 128Mi
   limits:
-    cpu: 250m
-    memory: 256Mi
+    cpu: 150m
+    memory: 192Mi
+
+# Use emptyDir for data storage
+persistence:
+  enabled: false
+
+# Volume configuration
+volumes:
+  - name: data
+    emptyDir: {}
+
+# Volume mounts
+volumeMounts:
+  - name: data
+    mountPath: /opt/bitnami/grafana/data
+
+# Optional: environment variables or config
+env:
+  # Example: you might want to set some default configurations
+  - name: GF_SECURITY_ADMIN_USER
+    value: admin
+  # Note: Be careful with hardcoding passwords
+  # - name: GF_SECURITY_ADMIN_PASSWORD
+  #   valueFrom:
+  #     secretKeyRef:
+  #       name: grafana-secret
+  #       key: admin-password
+
+# Optional: additional configuration
+service:
+  type: ClusterIP
+  port: 3000
+
+# Optional: ingress configuration
+ingress:
+  enabled: false
+  # annotations: {}
+  # hosts: []
+  # tls: []
