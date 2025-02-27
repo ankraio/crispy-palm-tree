@@ -1,0 +1,12 @@
+gateway:
+  auth:
+    enabled: true
+  enabled: true
+ingester:
+  persistence:
+    enabled: true
+    size: 10Gi
+loki:
+  configuration: 10Gi
+promtail:
+  enabled: true
