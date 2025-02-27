@@ -1,3 +1,0 @@
-service:
-  flush: 1
-  logLevel: debug
