@@ -1,15 +1,18 @@
 global:
-  # Optional: if you want to use a specific image pull secret
-  imagePullSecrets: []
+  imageRegistry: docker.io
+
+image:
+  registry: docker.io
+  repository: bitnami/grafana
+  tag: 11.4.0-debian-12-r2
+  pullPolicy: IfNotPresent
+
+# Disable persistent storage
+persistence:
+  enabled: false
 
 # Deployment configuration
 replicaCount: 1
-
-# Container image configuration
-image:
-  repository: docker.io/bitnami/grafana
-  tag: 11.4.0-debian-12-r2
-  pullPolicy: IfNotPresent
 
 # Grafana container resources
 resources:
@@ -19,10 +22,6 @@ resources:
   limits:
     cpu: 150m
     memory: 192Mi
-
-# Disable persistent storage
-persistence:
-  enabled: false
 
 # Use emptyDir for data storage
 volumes:
@@ -36,7 +35,6 @@ volumeMounts:
 
 # Environment variables
 env:
-  # Basic configuration examples
   - name: GF_SECURITY_DISABLE_INITIAL_ADMIN_CREATION
     value: "false"
   - name: GF_SECURITY_ADMIN_USER
