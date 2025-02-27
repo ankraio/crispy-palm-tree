@@ -20,33 +20,29 @@ resources:
     cpu: 150m
     memory: 192Mi
 
-# Use emptyDir for data storage
+# Disable persistent storage
 persistence:
   enabled: false
 
-# Volume configuration
+# Use emptyDir for data storage
 volumes:
   - name: data
     emptyDir: {}
 
-# Volume mounts
+# Volume mount configuration
 volumeMounts:
   - name: data
     mountPath: /opt/bitnami/grafana/data
 
-# Optional: environment variables or config
+# Environment variables
 env:
-  # Example: you might want to set some default configurations
+  # Basic configuration examples
+  - name: GF_SECURITY_DISABLE_INITIAL_ADMIN_CREATION
+    value: "false"
   - name: GF_SECURITY_ADMIN_USER
     value: admin
-  # Note: Be careful with hardcoding passwords
-  # - name: GF_SECURITY_ADMIN_PASSWORD
-  #   valueFrom:
-  #     secretKeyRef:
-  #       name: grafana-secret
-  #       key: admin-password
 
-# Optional: additional configuration
+# Service configuration
 service:
   type: ClusterIP
   port: 3000
@@ -54,6 +50,3 @@ service:
 # Optional: ingress configuration
 ingress:
   enabled: false
-  # annotations: {}
-  # hosts: []
-  # tls: []
